@@ -1,0 +1,159 @@
+<resources>
+    <string name="app_name">Financial Education</string>
+
+    <string name="prueba_texto"><font color='green'>Prueba texto</font></string>
+
+    // Financial education banner
+    <string name="fe_banner_title">¡Aprende de finanzas\n sin tanto rollo!</string>
+    <string name="fe_banner_subtitle">Storian, bienvenido a nuestra nueva herramienta de retos
+        financieros: Aprende con Stori.</string>
+    <string name="fe_banner_first_point_title">Retos rápidos y sencillos</string>
+    <string name="fe_banner_first_point_content">Aprende más sobre los
+    principales conceptos financieros para manejar de la mejor forma tu tarjeta Stori.</string>
+    <string name="fe_banner_second_point_title">Conceptos, tips y más en la palma de
+        tu mano</string>
+    <string name="fe_banner_second_point_content">¡Lo hicimos pensando en ti!\nPuedes empezar a
+        aprender y continuar cuando lo desees.</string>
+    <string name="fe_banner_want_to_learn">¡Quiero aprender!</string>
+    <string name="fe_banner_do_it_latter">Lo haré más tarde</string>
+
+    // Financial education Onboarding
+    <string name="fe_onboarding_learn_is_easy">¡Aprender es facilísimo!</string>
+    <string name="fe_onboarding_learn_with_stori">Aprende con Stori te ayudará a entender
+        los conceptos de tu tarjeta Stori de una forma clara y rápida.</string>
+    <string name="fe_onboarding_rifate_learning">¡Rífate aprendiendo!</string>
+    <string name="fe_onboarding_with_capsules">Con cápsulas cortas y sencillas de conceptos
+        financieros, ¡te volverás todo un experto!</string>
+    <string name="fe_onboarding_test_your_knowledge">¡Pon a prueba lo que aprendiste!</string>
+    <string name="fe_onboarding_fast_surveys">A partir de cuestionarios rápidos y prácticos.</string>
+    <string name="fe_onboarding_i_want_start">Quiero empezar</string>
+    <string name="fe_onboarding_good_start">¡Qué buen comienzo!</string>
+    <string name="fe_onboarding_finished_first_challenge">¡Has completado tu primer reto
+        Aprende con Stori!</string>
+    <string name="fe_onboarding_primary_btn_keep_learning">Continuar aprendiendo</string>
+    <string name="fe_onboarding_secondary_btn_first_challenge">Finalizar</string>
+    <string name="fe_onboarding_keep_moving">¡Sigue avanzando!</string>
+    <string name="fe_onboarding_finished_other_challenge">Has completado otro Stori reto y cada
+        vez aprendes más... ¡sigue así!</string>
+    <string name="fe_onboarding_finished_third_challenge">Has completado tu tercer Stori reto y
+        cada vez aprendiendo más... ¡Sigue así!</string>
+    <string name="fe_onboarding_you_did_it">¡Lo lograste!</string>
+    <string name="fe_onboarding_you_finished_all_challenges">¡Has completado todos los retos de
+        tu primer módulo de Aprende con Stori y ahora eres parte de la comunidad de Storians más
+        informados!</string>
+
+    // Financial education Lobby
+    <string name="fe_toolbar_header">Aprende con Stori</string>
+
+    <string name="fe_lobby_header">Revisa tu progreso</string>
+    <string name="fe_lobby_subheader">¿Deseas seguir aprendiendo?</string>
+
+    <string name="fe_next">Siguiente</string>
+    
+    <string name="fe_lobby_start_learning">Empieza a aprender</string>
+    <string name="fe_lobby_select_your_first_challenge">¡Selecciona tu primer
+        reto y\ndiviértete!</string>
+    <string name="fe_lobby_good_start">¡Qué buen comienzo!</string>
+    <string name="fe_lobby_keep_moving_with_challenges">Sigue avanzando en tus retos\nStori.</string>
+    <string name="fe_lobby_you_almost_there">¡Ya casi lo logras!</string>
+    <string name="fe_lobby_you_have_walk_half_of_the_path">Ya has recorrido la mitad del camino...
+        \n¡No te detengas ahora!</string>
+    <string name="fe_lobby_just_one_left">¡Sólo falta uno!</string>
+    <string name="fe_lobby_not_give_up_finish_challenge">No te rindas ahora y
+        completa tu\núltimo reto.</string>
+    <string name="fe_lobby_you_did_it">¡Lo lograste!</string>
+    <string name="fe_lobby_you_finished_the_challenges">¡Has completado con éxito\n
+        todos los desafíos!</string>
+
+    <string name="fe_first_section_educative_question">¿Cuál es la diferencia entre la fecha de corte y la fecha
+        límite de pago de Stori?</string>
+    <string name="fe_second_section_educative_question">¿Cuáles son los medios de pago de Stori?</string>
+    <string name="fe_third_section_educative_question">¿Por qué debes pagar tu Stori a tiempo?</string>
+    <string name="fe_fourth_section_educative_question">¿Cuáles son los montos de pago de Stori?</string>
+
+    <string name="fe_lobby_next_challenge">Siguiente desafío</string>
+    <string name="fe_lobby_learn_more_about_your_card">Aprende más sobre\ntu tarjeta Stori</string>
+
+    <string name="fe_lobby_bs_oops">¡Oops!</string>
+    <string name="fe_lobby_bs_creating_more_challenges_fd">
+        Por el momento nos encontramos creando más retos solo para tí.</string>
+    <string name="fe_lobby_bs_got_it">Entendido</string>
+
+    // Financial education Educative Content
+    <string name="fe_educative_first_section_message">Tu fecha de corte es el día que cerramos todas
+        las compras que hiciste durante los 30 días anteriores. Tu fecha de corte indica que ya
+        puedes realizar el pago de tu Stori, tienes aproximadamente 20 días para hacerlo.
+        \n\nTu fecha límite de pago es el último día para realizar el pago de tu Stori. No debes dejarla
+        pasar sin pagar para evitar impactos en tu historial crediticio y poder continuar
+        disfrutando de los beneficios de Stori.</string>
+
+    <string name="fe_educative_second_section_message">A través de tarjeta de débito:\n\n
+    1. SPEI/transferencia a cuenta CLABE interbancaria: Lo puedes realizar desde la App de tu
+        entidad bancaria y se refleja sólo en minutos.\n ¡Te la recomendamos!\n\n
+    2. Transferencia bancaria: Lo puedes hacer desde la App de tu entidad bancaria. El pago puede
+        tardar hasta 72 horas en reflejarse.\n\n
+    Si no tienes tarjeta de débito o prefieres hacerlo de forma presencial no te preocupes, puedes
+        hacer el pago por los siguientes medios:\n\n
+    3. OXXO Pay: Puedes pagar desde cualquier sucursal Oxxo y se refleja en minutos.\n
+        ¡Te la recomendamos!\n\n
+    4. Pago en ventanilla: Puedes acudir a cualquier sucursal bancaria y el pago puede tomar hasta
+        72 horas en ser procesado.
+    </string>
+
+    <string name="fe_educative_third_section_message">Pagar a tiempo tu Stori implica hacer el pago
+        en tu fecha límite de pago o antes.\n\n
+    Recuerda que los beneficios de pagar tu Stori a tiempo son los siguientes:\n
+    1. Con tu buen comportamiento de pago mejoras tu historial crediticio en el sistema financiero.\n
+    2. Puedes aumentar tu límite de crédito inicial.\n
+    3. Puedes continuar gozando de tu tarjeta Stori para futuras compras y sus beneficios (premios,
+        descuentos, etc.).
+    </string>
+
+    <string name="fe_educative_fourth_section_message">Existen 3 formas de pago disponibles para
+        pagar tu Stori:\n\nPago mínimo: Es el valor mínimo que debes pagar para no tener impactos en tu historial
+        crediticio. Es importante que sepas que al hacer el pago mínimo generas intereses, es
+        decir, una comisión sobre el dinero que te hizo falta pagar del total de la deuda.\n\n
+        Pago para no generar intereses: Este valor incluye el pago de todas las compras realizadas
+        hasta el día de hoy, de modo que es una buena opción para estar al día sin generar
+        intereses.\n\n
+        Pago de saldo total: Este valor incluye tu deuda total, no genera intereses y es la mejor
+        opción de pagos.
+    </string>
+
+    <string name="fe_educative_bs_keep_with_test">¡Continuemos con el test!</string>
+    <string name="fe_educative_bs_now_that_you_learn">Ahora que ya has aprendido más,
+        es el momento de realizar un cuestionario rápidamente.\n¿Estás listo?</string>
+    <string name="fe_educative_bs_im_ready">¡Si, estoy listo!</string>
+
+
+    // Quiz
+    <string name="fe_quiz_wrong_answer">Creo que tu respuesta no es correcta...
+    \n ¿Lo intentamos de nuevo?
+    </string>
+
+    <string name="fe_quiz_bs_oh_no">Oh no...</string>
+    <string name="fe_quiz_wrong_answer_redirect">Parece que no has seleccionado la
+        respuesta correcta de nuevo.\n\n
+        No te preocupes, revisemos de nuevo el contenido y lo intentamos de nuevo.
+    </string>
+
+    <string name="fe_quiz_first_section_title">¿Hasta cuando puedo realizar el pago de mi
+        Stori?</string>
+    <string name="fe_quiz_first_section_first_response">Fecha de corte</string>
+    <string name="fe_quiz_first_section_second_response">Fecha límite de pago</string>
+
+    <string name="fe_quiz_second_section_title">¿Cuál de estos medios de pago se refleja en minutos
+        en la App?</string>
+    <string name="fe_quiz_second_section_first_response">SPEI
+        (Transferencia Clabe Interbancaria)</string>
+    <string name="fe_quiz_second_section_second_response">Pago en ventanilla</string>
+
+    <string name="fe_quiz_third_section_title">¿Qué puede ocurrir si no pago a tiempo?</string>
+    <string name="fe_quiz_third_section_first_response">No pasa nada</string>
+    <string name="fe_quiz_third_section_second_response">Se impacta negativamente
+        tu historial crediticio</string>
+
+    <string name="fe_quiz_fourth_section_title">¿Qué pasa si realizo el pago mínimo?</string>
+    <string name="fe_quiz_fourth_section_first_response">Se generan intereses</string>
+    <string name="fe_quiz_fourth_section_second_response">No se generan intereses</string>
+</resources>
