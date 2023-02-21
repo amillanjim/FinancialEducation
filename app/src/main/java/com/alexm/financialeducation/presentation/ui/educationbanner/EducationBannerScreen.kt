@@ -48,7 +48,6 @@ fun EducationBannerScreen(
             .verticalScroll(rememberScrollState())
     ) {
         val (topBar, image, card, buttons) = createRefs()
-        //val topGuideline = createGuidelineFromTop(0.40f)
 
         TopBar(modifier = Modifier.constrainAs(
             ref = topBar,
@@ -102,7 +101,7 @@ private fun EducationBannerImage(
     Image(
         modifier = modifier.fillMaxWidth().height(292.dp).padding(top = 55.dp),
         contentScale = ContentScale.Fit,
-        painter = painterResource(id = R.drawable.foco),
+        painter = painterResource(id = R.drawable.img_lamp_light_one_color),
         contentDescription = null
     )
 }

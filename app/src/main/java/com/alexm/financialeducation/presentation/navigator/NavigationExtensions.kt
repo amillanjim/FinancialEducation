@@ -38,10 +38,15 @@ fun NavGraphBuilder.financialEducationGraph(
                     val activity = navController.context as Activity
                     activity.finish()
                 }
-                currentSection >= 0 -> financialEducationNavigation.navigateBack()
-                else -> {
+                currentSection >= 0 -> {
+                    viewModel.updateCompletedSections()
                     viewModel.increaseCurrentSection()
+                    viewModel.collectLobbyState()
                     financialEducationNavigation.navigateToLobbyScreen()
+                }
+                else -> {
+                    viewModel.decreaseCurrentSection()
+                    viewModel.collectOnboardingState()
                 }
             } },
         onPrimaryBtnClick = {
@@ -80,6 +85,7 @@ fun NavGraphBuilder.financialEducationGraph(
             activity.finish()
         },
         onSectionSelected = {
+            viewModel.collectEducativeContentState()
             viewModel.collectQuizState()
             financialEducationNavigation.navigateToEducativeScreen()
         }

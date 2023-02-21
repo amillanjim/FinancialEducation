@@ -13,7 +13,7 @@ enum class QuizType(
             firstQuestion = R.string.fe_quiz_first_section_first_response,
             secondQuestion = R.string.fe_quiz_first_section_second_response,
             correctAnswer = R.string.fe_quiz_first_section_second_response,
-            imageHeaderResource = R.drawable.img_book_smilling_scissors
+            imageHeaderResource = R.drawable.img_cut_day
         )
     ),
     WHICH_PAYMENT_REFLECTS_IN_MINUTES(
@@ -23,7 +23,7 @@ enum class QuizType(
             firstQuestion = R.string.fe_quiz_second_section_first_response,
             secondQuestion = R.string.fe_quiz_second_section_second_response,
             correctAnswer = R.string.fe_quiz_second_section_first_response,
-            imageHeaderResource = R.drawable.img_book_two_faces
+            imageHeaderResource = R.drawable.img_card_with_2_faces
         )
     ),
     WHAT_HAPPEN_IF_NO_POT(

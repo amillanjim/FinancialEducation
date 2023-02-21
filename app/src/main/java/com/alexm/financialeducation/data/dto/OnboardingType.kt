@@ -13,7 +13,7 @@ enum class OnboardingType(
             message = R.string.fe_onboarding_learn_with_stori,
             boldText = listOf("Aprende con Stori"),
             primaryBtnText = R.string.fe_next,
-            imageHeader = R.drawable.img_book_abc_light
+            imageHeader = R.drawable.img_book_with_eyes
         )
     ),
     RIFATE_LEARNING(
@@ -22,7 +22,7 @@ enum class OnboardingType(
             title = R.string.fe_onboarding_rifate_learning,
             message = R.string.fe_onboarding_with_capsules,
             primaryBtnText = R.string.fe_next,
-            imageHeader = R.drawable.img_bulb_light_one_color
+            imageHeader = R.drawable.img_lamp_light_one_color
         )
     ),
     TEST_WHAT_YOU_LEARNED(
@@ -31,7 +31,7 @@ enum class OnboardingType(
             title = R.string.fe_onboarding_test_your_knowledge,
             message = R.string.fe_onboarding_fast_surveys,
             primaryBtnText = R.string.fe_onboarding_i_want_start,
-            imageHeader = R.drawable.img_book_test_your_knowledge_light
+            imageHeader = R.drawable.img_card_with_check
         )
     ),
     GOOD_START(
@@ -42,7 +42,7 @@ enum class OnboardingType(
             boldText = listOf("tu primer reto Aprende con Stori!"),
             primaryBtnText = R.string.fe_onboarding_primary_btn_keep_learning,
             secondaryBtnText = R.string.fe_onboarding_secondary_btn_first_challenge,
-            imageHeader = R.drawable.img_book_good_start_light
+            imageHeader = R.drawable.img_card_walking
         )
     ),
     KEEP_MOVING(
@@ -53,7 +53,7 @@ enum class OnboardingType(
             boldText = listOf("Stori reto"),
             primaryBtnText = R.string.fe_onboarding_primary_btn_keep_learning,
             secondaryBtnText = R.string.fe_onboarding_secondary_btn_first_challenge,
-            imageHeader = R.drawable.img_book_keep_moving_light
+            imageHeader = R.drawable.img_card_with_skate
         )
     ),
     FINISH_THIRD_CHALLENGE(
@@ -64,7 +64,7 @@ enum class OnboardingType(
             boldText = listOf("tu tercer Stori reto"),
             primaryBtnText = R.string.fe_onboarding_primary_btn_keep_learning,
             secondaryBtnText = R.string.fe_onboarding_secondary_btn_first_challenge,
-            imageHeader = R.drawable.img_book_keep_moving_light
+            imageHeader = R.drawable.img_card_with_skate
         )
     ),
     YOU_DID_IT(
@@ -74,7 +74,7 @@ enum class OnboardingType(
             message = R.string.fe_onboarding_you_finished_all_challenges,
             boldText = listOf("tu primer módulo de Aprende con Stori"),
             secondaryBtnText = R.string.fe_onboarding_secondary_btn_first_challenge,
-            imageHeader = R.drawable.img_bulb_light_multi_color
+            imageHeader = R.drawable.img_lamp_multi_color
         )
     );
 

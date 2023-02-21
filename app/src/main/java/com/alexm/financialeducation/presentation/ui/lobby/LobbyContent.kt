@@ -232,7 +232,7 @@ private fun LobbyNextChallengeFD(
                 modifier = Modifier
                     .height(55.dp)
                     .width(55.dp),
-                painter = painterResource(id = R.drawable.img_book_keep_moving_no_light),
+                painter = painterResource(id = R.drawable.img_card_with_skate_no_light),
                 contentDescription = null
             )
 

@@ -20,7 +20,7 @@ enum class EducativeContentType(
                         "días anteriores.",
                 "es el último día para realizar el pago de tu Stori."
             ),
-            imageHeaderResource = R.drawable.img_book_walking_cut
+            imageHeaderResource = R.drawable.img_card_walking_cut
         )
     ),
     PAYMENT_METHODS(
@@ -43,7 +43,7 @@ enum class EducativeContentType(
                 "¡Te la recomendamos!",
                 "puede tomar hasta 72 horas"
             ),
-            imageHeaderResource = R.drawable.img_book_test_your_knowledge_cut
+            imageHeaderResource = R.drawable.img_card_with_check_cut
         )
     ),
     PAY_ON_TIME(

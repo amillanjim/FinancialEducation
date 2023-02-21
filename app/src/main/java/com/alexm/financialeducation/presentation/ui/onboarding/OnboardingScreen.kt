@@ -116,9 +116,11 @@ private fun OnboardingImage(
 ){
     Image(
         modifier = modifier
-            .fillMaxSize()
-            .wrapContentHeight(),
-        contentScale = ContentScale.FillWidth,
+            .fillMaxWidth()
+            .height(415.dp)
+            .wrapContentHeight()
+            .padding(horizontal = 16.dp),
+        contentScale = ContentScale.Fit,
         painter = painterResource(id = resourceId),
         contentDescription = null
     )
@@ -172,14 +174,13 @@ private fun OnboardingButtons(
     onPrimaryBtnClick: () -> Unit = {},
     onSecondaryBtnClick: () -> Unit = {}
 ){
-    val topPadding = if (primaryBtnText == null || secondaryBtnText == null) 58.dp else 26.dp
     val horizontalPadding = 18.dp
 
     Column(
         verticalArrangement = Arrangement.spacedBy(16.dp),
         modifier = modifier
             .fillMaxWidth()
-            .padding(start = horizontalPadding, end = horizontalPadding, top = topPadding)
+            .padding(start = horizontalPadding, end = horizontalPadding, top = 42.dp)
     ) {
         secondaryBtnText?.let {
             SecondaryButton(

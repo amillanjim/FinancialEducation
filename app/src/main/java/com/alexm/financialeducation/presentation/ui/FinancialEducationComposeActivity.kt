@@ -1,4 +1,4 @@
-package com.alexm.financialeducation
+package com.alexm.financialeducation.presentation.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -18,7 +18,7 @@ import com.alexm.financialeducation.presentation.navigator.financialEducationGra
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class FinancialEducationComposeActivity: ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
