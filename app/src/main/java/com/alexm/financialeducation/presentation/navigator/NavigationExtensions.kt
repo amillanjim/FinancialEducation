@@ -15,29 +15,22 @@ import com.alexm.financialeducation.presentation.ui.quiz.QuizScreen
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
 
 fun NavGraphBuilder.financialEducationGraph(
+    activity: Activity,
     navController: NavController,
     viewModel: FinancialEducationViewModel,
 ){
     val financialEducationNavigation = FinancialEducationNavigation(navController)
     val currentSection = viewModel.currentSectionState.value
     composable(route = Screen.EducationBannerScreen.route) { EducationBannerScreen(
-        onDismissPress = {
-            val activity = navController.context as Activity
-            activity.finish() },
+        onDismissPress = { activity.finish() },
         onPrimaryBtnClick = { financialEducationNavigation.navigateToOnboardingScreen() },
-        onSecondaryBtnClick = {
-            val activity = navController.context as Activity
-            activity.finish()
-        }
+        onSecondaryBtnClick = { activity.finish() }
     ) }
     composable(route = Screen.OnboardingScreen.route) { OnboardingScreen(
         viewModel = viewModel,
         onBackPressed = {
             when {
-                currentSection == -3 -> {
-                    val activity = navController.context as Activity
-                    activity.finish()
-                }
+                currentSection == -3 -> activity.finish()
                 currentSection >= 0 -> {
                     viewModel.updateCompletedSections()
                     viewModel.increaseCurrentSection()
@@ -80,10 +73,7 @@ fun NavGraphBuilder.financialEducationGraph(
     ) }
     composable(route = Screen.LobbyScreen.route) { LobbyScreen(
         viewModel = viewModel,
-        onBackPressed = {
-            val activity = navController.context as Activity
-            activity.finish()
-        },
+        onBackPressed = { activity.finish() },
         onSectionSelected = {
             viewModel.collectEducativeContentState()
             viewModel.collectQuizState()

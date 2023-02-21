@@ -1,5 +1,6 @@
 package com.alexm.financialeducation.presentation.ui
 
+import android.app.Activity
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -41,7 +42,11 @@ class FinancialEducationComposeActivity: ComponentActivity() {
                         navController = navController,
                         startDestination = startDestination.route
                     ) {
-                        financialEducationGraph(navController, viewModel)
+                        financialEducationGraph(
+                            activity = navController.context as Activity,
+                            navController = navController,
+                            viewModel = viewModel
+                        )
                     }
                 }
             }
