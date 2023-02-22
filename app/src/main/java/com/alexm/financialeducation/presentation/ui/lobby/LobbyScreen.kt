@@ -7,7 +7,6 @@ import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.*
 import com.alexm.financialeducation.presentation.ui.compose.theme.White
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
-import com.alexm.financialeducation.utils.extensions.SetStatusBarColor
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -17,7 +16,7 @@ fun LobbyScreen(
     onBackPressed: () -> Unit,
     onSectionSelected: () -> Unit
 ){
-    SetStatusBarColor(
+    SetSystemBarsColor(
         statusBarColor = White,
         isDarkModeIcons = true
     )

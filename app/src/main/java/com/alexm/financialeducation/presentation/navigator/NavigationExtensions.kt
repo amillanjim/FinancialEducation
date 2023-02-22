@@ -4,9 +4,6 @@ import android.app.Activity
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
-import com.alexm.financialeducation.presentation.navigator.FinancialEducationNavigation
-import com.alexm.financialeducation.presentation.navigator.Screen
-import com.alexm.financialeducation.presentation.ui.compose.storicomponents.StoriPrimaryButton
 import com.alexm.financialeducation.presentation.ui.educationbanner.EducationBannerScreen
 import com.alexm.financialeducation.presentation.ui.lobby.LobbyScreen
 import com.alexm.financialeducation.presentation.ui.onboarding.OnboardingScreen
@@ -92,6 +89,6 @@ fun NavGraphBuilder.financialEducationGraph(
             viewModel.collectOnboardingState()
             financialEducationNavigation.navigateToOnboardingScreen()
         },
-        onWrongAnswerClick = { financialEducationNavigation.navigateBack() }
+        onWrongAnswerClick = { financialEducationNavigation.navigateToEducativeScreen() }
     ) }
 }

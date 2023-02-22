@@ -6,7 +6,8 @@ import androidx.annotation.StringRes
 data class EducativeContent(
     @StringRes val title: Int,
     @StringRes val message: Int,
-    val greenText: List<String>,
-    val boldText: List<String>,
+    val greenText: List<Int>,
+    val boldText: List<Int>,
     @DrawableRes val imageHeaderResource: Int,
+    val rotateImage: Float? = null
 )

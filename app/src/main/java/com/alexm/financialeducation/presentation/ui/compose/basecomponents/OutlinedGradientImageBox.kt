@@ -7,6 +7,7 @@ import androidx.compose.material.Card
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
@@ -23,6 +24,7 @@ fun OutlinedGradientImageBox(
     shape: Shape = Shapes.medium,
     elevation: Dp = 4.dp,
     onClick: (() -> Unit)? = null,
+    rotateImage: Float? = null
 ){
     Card(
         modifier = Modifier.diagonalGradientBorder(
@@ -40,8 +42,11 @@ fun OutlinedGradientImageBox(
             modifier.clip(shape)
 
         Box(modifier = modifier) {
+            val imageModifier = if (rotateImage != null) Modifier.fillMaxSize().rotate(rotateImage)
+            else Modifier.fillMaxSize()
+
             Image(
-                modifier = Modifier.fillMaxSize(),
+                modifier = imageModifier,
                 painter = painterResource(resourceId),
                 contentDescription = null
             )

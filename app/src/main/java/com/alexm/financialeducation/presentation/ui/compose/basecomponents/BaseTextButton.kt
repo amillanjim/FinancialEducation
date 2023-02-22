@@ -44,6 +44,7 @@ fun BaseTextButton(
         ButtonContent(
             text = text,
             textStyle = textStyle,
+            contentColor = contentColor,
             enableIcon = enableIcon
         )
     }

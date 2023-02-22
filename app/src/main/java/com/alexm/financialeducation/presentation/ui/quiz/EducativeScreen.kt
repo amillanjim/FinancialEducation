@@ -8,9 +8,9 @@ import androidx.compose.ui.res.stringResource
 import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.BaseBottomSheetContent
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.BaseModalBottomSheet
+import com.alexm.financialeducation.presentation.ui.compose.basecomponents.SetSystemBarsColor
 import com.alexm.financialeducation.presentation.ui.compose.theme.White
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
-import com.alexm.financialeducation.utils.extensions.SetStatusBarColor
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -20,7 +20,7 @@ fun EducativeScreen(
     onBackPressed: () -> Unit,
     onBSBtnClick: () -> Unit
 ) {
-    SetStatusBarColor(
+    SetSystemBarsColor(
         statusBarColor = White,
         isDarkModeIcons = true
     )

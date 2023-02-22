@@ -108,7 +108,7 @@ fun Typography.subtitle3() = TextStyle(
 fun Typography.body3() = TextStyle(
     fontFamily = Roboto,
     fontSize = 14.sp,
-    fontWeight = FontWeight.Normal,
+    fontWeight = FontWeight.SemiBold,
     lineHeight = 23.sp,
     letterSpacing = 0.sp
 )

@@ -46,6 +46,7 @@ fun SecondaryButton(
         ButtonContent(
             text = text,
             textStyle = textStyle,
+            contentColor = contentColor,
             enableIcon = enableIcon
         )
     }

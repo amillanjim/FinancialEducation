@@ -12,13 +12,12 @@ enum class EducativeContentType(
             title = R.string.fe_first_section_educative_question,
             message = R.string.fe_educative_first_section_message,
             greenText = listOf(
-                "Tu fecha de corte",
-                "Tu fecha límite de pago"
+                R.string.fe_educative_first_section_cut_day,
+                R.string.fe_educative_first_section_due_day
             ),
             boldText = listOf(
-                "es el día que cerramos todas las compras que hiciste durante los 30 " +
-                        "días anteriores.",
-                "es el último día para realizar el pago de tu Stori."
+                R.string.fe_educative_first_section_day_we_close_payments,
+                R.string.fe_educative_first_section_last_day_to_pay
             ),
             imageHeaderResource = R.drawable.img_card_walking_cut
         )
@@ -29,19 +28,18 @@ enum class EducativeContentType(
             title = R.string.fe_second_section_educative_question,
             message = R.string.fe_educative_second_section_message,
             greenText = listOf(
-                "1. SPEI/transferencia a cuenta CLABE interbancaria:",
-                "2. Transferencia bancaria:",
-                "3. OXXO Pay:",
-                "4. Pago en ventanilla:"
+                R.string.fe_educative_second_section_spei,
+                R.string.fe_educative_second_section_transfer,
+                R.string.fe_educative_second_section_oxxo,
+                R.string.fe_educative_second_section_window_paymen
             ),
             boldText = listOf(
-                "A través de tarjeta de débito:",
-                "¡Te la recomendamos!",
-                "El pago puede tardar hasta 72 horas en reflejarse.",
-                "Si no tienes tarjeta de débito o prefieres hacerlo de forma presencial no te " +
-                        "preocupes, puedes hacer el pago por los siguientes medios:",
-                "¡Te la recomendamos!",
-                "puede tomar hasta 72 horas"
+                R.string.fe_educative_second_section_via_debit_card,
+                R.string.fe_educative_second_section_recommended,
+                R.string.fe_educative_second_section_take_72_hrs,
+                R.string.fe_educative_second_section_no_have_debit_card,
+                R.string.fe_educative_second_section_recommended,
+                R.string.fe_educative_second_section_can_take_72
             ),
             imageHeaderResource = R.drawable.img_card_with_check_cut
         )
@@ -51,17 +49,15 @@ enum class EducativeContentType(
         EducativeContent(
             title = R.string.fe_third_section_educative_question,
             message = R.string.fe_educative_third_section_message,
-            greenText = listOf(
-                "Pagar a tiempo tu Stori implica hacer el pago en tu fecha límite de pago o antes."
-            ),
+            greenText = listOf(R.string.fe_educative_third_section_pay_on_time),
             boldText = listOf(
-                "Recuerda que los beneficios de pagar tu Stori a tiempo son los siguientes:",
-                "mejoras tu historial crediticio",
-                "aumentar tu límite",
-                "futuras compras",
-                "sus beneficios"
+                R.string.fe_educative_third_section_benefits,
+                R.string.fe_educative_third_section_improve_you_credit,
+                R.string.fe_educative_third_section_increase_your_credit,
+                R.string.fe_educative_third_section_future_buys,
+                R.string.fe_educative_third_section_its_benefits
             ),
-            imageHeaderResource = R.drawable.img_bulb_no_light_one_color
+            imageHeaderResource = R.drawable.img_lamp_no_light_one_color
         )
     ),
     PAYMENT_AMOUNTS(
@@ -70,17 +66,18 @@ enum class EducativeContentType(
             title = R.string.fe_fourth_section_educative_question,
             message = R.string.fe_educative_fourth_section_message,
             greenText = listOf(
-                "Pago mínimo:",
-                "Pago para no generar intereses:",
-                "Pago de saldo total:"
+                R.string.fe_educative_fourth_section_minimum_payment,
+                R.string.fe_educative_fourth_section_no_interest_payment,
+                R.string.fe_educative_fourth_section_total_debt
             ),
             boldText = listOf(
-                "Existen 3 formas de pago disponibles para pagar tu Stori:",
-                "valor mínimo que debes pagar para no tener impactos en tu historial crediticio.",
-                "incluye el pago de todas las compras realizadas",
-                "incluye tu deuda total,"
+                R.string.fe_educative_fourth_section_3_ways_to_pay_your_card,
+                R.string.fe_educative_fourth_section_minimum_value_to_pay,
+                R.string.fe_educative_fourth_section_pay_complete_debt,
+                R.string.fe_educative_fourth_section_total_debt_included
             ),
-            imageHeaderResource = R.drawable.img_book_abc_no_light
+            imageHeaderResource = R.drawable.img_book_with_eyes_cut,
+            rotateImage = 10F
         )
     );
 

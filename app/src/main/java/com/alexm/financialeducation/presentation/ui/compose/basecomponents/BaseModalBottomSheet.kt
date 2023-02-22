@@ -4,6 +4,7 @@ import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -26,9 +27,8 @@ fun BaseModalBottomSheet(
     BackHandler(sheetState.isVisible) {
         coroutineScope.launch { sheetState.hide() }
     }
-
-    var isSheetOpened by remember { mutableStateOf(
-        sheetState.currentValue == ModalBottomSheetValue.Hidden)
+    var isSheetOpened by rememberSaveable {
+        mutableStateOf(sheetState.currentValue == ModalBottomSheetValue.Hidden)
     }
 
     LaunchedEffect(sheetState.currentValue) {

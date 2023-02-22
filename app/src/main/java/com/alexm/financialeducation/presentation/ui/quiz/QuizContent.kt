@@ -14,11 +14,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
-import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.*
 import com.alexm.financialeducation.presentation.ui.compose.theme.*
 import com.alexm.financialeducation.presentation.ui.quiz.components.ImageHeader
 import com.alexm.financialeducation.presentation.ui.quiz.components.QuizTitle
+import com.alexm.financialeducation.presentation.ui.quiz.components.QuizTopBar
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
 
 @Composable
@@ -31,14 +31,8 @@ fun QuizContent(
     val quizState by viewModel.quizState.collectAsState()
 
     Scaffold(
-        modifier = Modifier.statusBarsPadding(),
-        topBar = {
-            Toolbar(
-                text = stringResource(id = R.string.fe_toolbar_header),
-                leftIconResource = R.drawable.ic_chevron_left_24px,
-                onLeftClick = onBackPressed
-            )
-        }
+        topBar = { QuizTopBar(onBackPressed) },
+        backgroundColor = Light
     ) {
         ConstraintLayout(
             modifier = Modifier
@@ -93,20 +87,20 @@ private fun QuizQuestions(
         modifier = modifier.padding(top = 56.dp),
         verticalArrangement = Arrangement.spacedBy(24.dp)
     ) {
-        AnswerOption(answerOption = firstQuestion, onSelected = {
+        AnswerOption(answerOption = firstQuestion) {
             viewModel.validateAnswer(userAnswer = it)
             if (viewModel.isValidAnswer.value)
-                onCorrectAnswerBtnClick.invoke()
+                onCorrectAnswerBtnClick()
             else
-                onWrongAnswerBtnClick.invoke()
-        })
-        AnswerOption(answerOption = secondQuestion, onSelected = {
+                onWrongAnswerBtnClick()
+        }
+        AnswerOption(answerOption = secondQuestion) {
             viewModel.validateAnswer(userAnswer = it)
             if (viewModel.isValidAnswer.value)
-                onCorrectAnswerBtnClick.invoke()
+                onCorrectAnswerBtnClick()
             else
-                onWrongAnswerBtnClick.invoke()
-        })
+                onWrongAnswerBtnClick()
+        }
     }
 }
 
@@ -116,20 +110,18 @@ private fun AnswerOption(
     onSelected: (questionId: Int) -> Unit
 ){
     OutlinedBox(
-        modifier = Modifier
-            .fillMaxWidth(),
+        modifier = Modifier.fillMaxWidth(),
         onClick = { onSelected(answerOption) },
         elevation = 2.dp,
         borderWidth = 2.dp,
-        content = {
-            Text(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 28.dp, horizontal = 57.dp),
-                text = stringResource(id = answerOption),
-                textAlign = TextAlign.Center,
-                style = Typography.subtitle1
-            )
-        }
-    )
+    ) {
+        Text(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(vertical = 28.dp, horizontal = 58.dp),
+            text = stringResource(id = answerOption),
+            textAlign = TextAlign.Center,
+            style = Typography.subtitle1
+        )
+    }
 }

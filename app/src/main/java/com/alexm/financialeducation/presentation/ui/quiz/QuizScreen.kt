@@ -8,7 +8,6 @@ import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.*
 import com.alexm.financialeducation.presentation.ui.compose.theme.White
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
-import com.alexm.financialeducation.utils.extensions.SetStatusBarColor
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -19,17 +18,30 @@ fun QuizScreen(
     onWrongAnswerClick: () -> Unit,
     onCorrectAnswerBtnClick: () -> Unit
 ) {
-    SetStatusBarColor(
+    SetSystemBarsColor(
         statusBarColor = White,
         isDarkModeIcons = true
     )
 
-    val sheetState = rememberModalBottomSheetState(
-        initialValue = ModalBottomSheetValue.Hidden,
-        confirmStateChange = { it != ModalBottomSheetValue.HalfExpanded }
-    )
     val coroutineScope = rememberCoroutineScope()
     var hiddenWrongBottomSheet by rememberSaveable { mutableStateOf(0) }
+
+    val sheetState = rememberModalBottomSheetState(
+        initialValue = ModalBottomSheetValue.Hidden
+    ) { it != ModalBottomSheetValue.HalfExpanded }
+
+    if (sheetState.currentValue != ModalBottomSheetValue.Hidden) {
+        DisposableEffect(Unit) {
+            onDispose {
+                if (hiddenWrongBottomSheet == 1) {
+                    onWrongAnswerClick()
+                    hiddenWrongBottomSheet = 0
+                } else {
+                    hiddenWrongBottomSheet++
+                }
+            }
+        }
+    }
 
     BaseModalBottomSheet(
         sheetState = sheetState,
@@ -41,19 +53,8 @@ fun QuizScreen(
             onWrongAnswerBtnClick = { coroutineScope.launch { sheetState.show() } }
         ) },
         sheetContent = {
-            WrongAnswerBottomSheet(
-                isBackToEducative = hiddenWrongBottomSheet != 1
-            ){
-                coroutineScope.launch {
-                    sheetState.hide()
-                    if (hiddenWrongBottomSheet == 1) {
-                        hiddenWrongBottomSheet = 0
-                        onWrongAnswerClick.invoke()
-                    } else {
-                        hiddenWrongBottomSheet++
-                    }
-                }
-            }
+            WrongAnswerBottomSheet(isBackToEducative = hiddenWrongBottomSheet >= 1)
+            { coroutineScope.launch { sheetState.hide() } }
         }
     )
 }
@@ -69,10 +70,10 @@ private fun WrongAnswerBottomSheet(
             else R.string.fe_lobby_bs_oops
         ),
         message = stringResource(
-            id = if (isBackToEducative) R.string.fe_quiz_wrong_answer
-            else R.string.fe_quiz_wrong_answer_redirect
+            id = if (isBackToEducative) R.string.fe_quiz_wrong_answer_redirect
+            else R.string.fe_quiz_wrong_answer
         ),
-        headIcon = if (isBackToEducative) R.drawable.ic_flushed_face else R.drawable.ic_crying_face,
+        headIcon = if (isBackToEducative) R.drawable.ic_crying_face else R.drawable.ic_flushed_face,
         mainBtnAction = onClick,
         mainBtnText = stringResource(id = R.string.fe_lobby_bs_got_it)
     )

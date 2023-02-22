@@ -19,7 +19,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.alexm.financialeducation.presentation.ui.compose.theme.Gray100
 import com.alexm.financialeducation.presentation.ui.compose.theme.Typography
-import com.alexm.financialeducation.utils.FinancialEducationUtils
+import com.alexm.financialeducation.utils.convertQuartersToPercentage
 
 @Composable
 fun GradientCircularProgressBar(
@@ -27,6 +27,8 @@ fun GradientCircularProgressBar(
     indicatorThickness: Dp = 12.dp,
     animationDuration: Int = 1000,
     animationDelay: Int = 0,
+    maximumValue: Int = 4,
+    minimumValue: Int = 0,
     backgroundIndicatorColor: Color = Gray100,
     gradientColors: List<Color> = listOf(
         Color(0xFF016598),
@@ -35,7 +37,7 @@ fun GradientCircularProgressBar(
         Color(0xFF016598),
     )
 ) {
-    val number = FinancialEducationUtils.convertQuartersToPercentage(completedSections)
+    val number = convertQuartersToPercentage(completedSections)
 
     val animateNumber = animateFloatAsState(
         targetValue = number,
@@ -65,12 +67,17 @@ fun GradientCircularProgressBar(
                 startAngle = -90f,
                 sweepAngle = sweepAngle,
                 useCenter = false,
-                style = Stroke(width = indicatorThickness.toPx(), cap = StrokeCap.Square)
+                style = Stroke(width = indicatorThickness.toPx(), cap = StrokeCap.Butt)
             )
+        }
+        val displayableNumber = when {
+            completedSections < minimumValue -> minimumValue
+            completedSections > maximumValue -> maximumValue
+            else -> completedSections
         }
 
         Text(
-            text = "$completedSections/4",
+            text = "$displayableNumber/4",
             style = Typography.body2
         )
     }

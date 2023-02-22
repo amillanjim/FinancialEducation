@@ -1,4 +1,4 @@
-package com.alexm.financialeducation.utils.extensions
+package com.alexm.financialeducation.presentation.ui.compose.basecomponents
 
 import android.app.Activity
 import androidx.compose.runtime.Composable
@@ -9,7 +9,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
 @Composable
-fun SetStatusBarColor(
+fun SetSystemBarsColor(
     statusBarColor: Color = Color.Transparent,
     navigationBarColor: Color = Color.Transparent,
     isDarkModeIcons: Boolean = false

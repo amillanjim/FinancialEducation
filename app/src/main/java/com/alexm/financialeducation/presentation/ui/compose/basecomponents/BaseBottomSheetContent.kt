@@ -30,6 +30,10 @@ fun BaseBottomSheetContent(
     secondaryBtnAction: (() -> Unit)? = null,
     secondaryBtnColor: Color = Stori700Primary
 ) {
+    SetSystemBarsColor(
+        statusBarColor = Color.Transparent,
+        isDarkModeIcons = true
+    )
     Column(
         modifier = modifier.padding(
             horizontal = 16.dp,

@@ -30,12 +30,12 @@ fun Toolbar(
     onRightIconClick: (() -> Unit)? = null
 ){
     TopAppBar(
-        modifier = Modifier.padding(0.dp),
+        modifier = modifier.padding(0.dp),
         elevation = elevation,
         backgroundColor = backgroundColor
     ) {
         Row(
-            modifier = modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             leftIconResource?.let {

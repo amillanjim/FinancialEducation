@@ -1,5 +1,6 @@
 package com.alexm.financialeducation.presentation.ui.educationbanner
 
+import androidx.activity.compose.BackHandler
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.*
@@ -10,11 +11,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -22,8 +23,10 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.*
 import com.alexm.financialeducation.presentation.ui.compose.theme.*
-import com.alexm.financialeducation.utils.FinancialEducationUtils.styledText
-import com.alexm.financialeducation.utils.extensions.SetStatusBarColor
+import com.alexm.financialeducation.utils.extensions.educationBannerContainer
+import com.alexm.financialeducation.utils.extensions.setSemiBoldStyle
+import com.alexm.financialeducation.utils.extensions.setStyle
+import com.alexm.financialeducation.utils.extensions.styledText
 
 @Composable
 fun EducationBannerScreen(
@@ -31,40 +34,31 @@ fun EducationBannerScreen(
     onPrimaryBtnClick: () -> Unit,
     onSecondaryBtnClick: () -> Unit
 ) {
-    SetStatusBarColor()
+    BackHandler { onDismissPress() }
+
+    SetSystemBarsColor()
 
     ConstraintLayout(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                Brush.verticalGradient(
-                    colors = listOf(
-                        GreenGradient6,
-                        GreenGradient7
-                    )
-                )
-            )
-            .statusBarsPadding()
-            .verticalScroll(rememberScrollState())
+        modifier = Modifier.educationBannerContainer()
     ) {
         val (topBar, image, card, buttons) = createRefs()
 
         TopBar(modifier = Modifier.constrainAs(
             ref = topBar,
-            constrainBlock = { top.linkTo(parent.top) }
-        )) { onDismissPress() }
+            constrainBlock = { top.linkTo(parent.top) } )
+        ) { onDismissPress() }
 
         EducationBannerImage(
             modifier = Modifier.constrainAs(
                 ref = image,
-                constrainBlock = { top.linkTo(parent.top) }
+                constrainBlock = { top.linkTo(topBar.bottom) }
             )
         )
 
         EducationBannerCard(
             modifier = Modifier.constrainAs(
                 ref = card,
-                constrainBlock = { top.linkTo(topBar.bottom) }
+                constrainBlock = { top.linkTo(image.bottom) }
             )
         )
 
@@ -98,20 +92,38 @@ private fun TopBar(
 private fun EducationBannerImage(
     modifier: Modifier
 ){
-    Image(
-        modifier = modifier.fillMaxWidth().height(292.dp).padding(top = 55.dp),
-        contentScale = ContentScale.Fit,
-        painter = painterResource(id = R.drawable.img_lamp_light_one_color),
-        contentDescription = null
-    )
+    Box(
+        modifier = modifier
+            .height(260.dp)
+            .fillMaxWidth(),
+        contentAlignment = Alignment.Center
+    ) {
+        Image(
+            modifier = Modifier
+                .fillMaxHeight()
+                .width(300.dp),
+            contentScale = ContentScale.Inside,
+            painter = painterResource(id = R.drawable.img_lamp_light_one_color),
+            contentDescription = null
+        )
+    }
 }
 
 @Composable
 private fun EducationBannerCard(
     modifier: Modifier
 ) {
-    Card(modifier = modifier.fillMaxWidth().padding(horizontal = 16.dp).padding(top = 310.dp)) {
-        Column(modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp, vertical = 24.dp)) {
+    Card(modifier = modifier
+        .fillMaxWidth()
+        .padding(start = 16.dp, end = 16.dp, top = 20.dp),
+        elevation = 0.dp,
+        shape = Shapes.medium
+    ) {
+        Column(modifier = Modifier
+            .fillMaxWidth()
+            .background(Light)
+            .padding(horizontal = 20.dp, vertical = 24.dp)
+        ) {
             Text(
                 modifier = Modifier.fillMaxWidth(),
                 text = stringResource(id = R.string.fe_banner_title),
@@ -120,13 +132,16 @@ private fun EducationBannerCard(
                 textAlign = TextAlign.Center
             )
             Spacer(modifier = Modifier.height(8.dp))
-            val styledSubtitle = styledText(
-                text = stringResource(id = R.string.fe_banner_subtitle),
-                fontSize = 12.sp,
-                color = Stori700Primary,
-                colorText = listOf("Aprende con Stori.")
 
-            )
+            val styledSubtitle = stringResource(id = R.string.fe_banner_subtitle)
+                .styledText(
+                    normalSpanStyle = SpanStyle().setStyle(
+                        color = Gray800, textStyle = Typography.caption
+                    ),
+                    primarySpanStyle = SpanStyle().setSemiBoldStyle(color = Stori700Primary),
+                    primaryColorText = listOf(R.string.fe_banner_learn_with_stori)
+                )
+
             Text(
                 modifier = modifier,
                 text = styledSubtitle,

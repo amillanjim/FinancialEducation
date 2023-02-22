@@ -1,5 +1,6 @@
 package com.alexm.financialeducation.presentation.ui.lobby
 
+import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
@@ -12,10 +13,10 @@ import androidx.compose.ui.unit.dp
 import com.alexm.financialeducation.R
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.IconText
 import com.alexm.financialeducation.presentation.ui.compose.basecomponents.OutlinedBox
-import com.alexm.financialeducation.presentation.ui.compose.basecomponents.Toolbar
 import com.alexm.financialeducation.presentation.ui.compose.theme.*
 import com.alexm.financialeducation.data.dto.Lobby
 import com.alexm.financialeducation.presentation.ui.lobby.components.GradientCircularProgressBar
+import com.alexm.financialeducation.presentation.ui.quiz.components.QuizTopBar
 import com.alexm.financialeducation.presentation.viewmodel.FinancialEducationViewModel
 
 @Composable
@@ -28,9 +29,10 @@ fun LobbyContent(
     val lobbyState by viewModel.lobbyState.collectAsState()
     val completedSections by viewModel.completedSections.collectAsState()
 
+    BackHandler { onBackPressed() }
+
     Scaffold(
-        modifier = Modifier.statusBarsPadding(),
-        topBar = { TopBar{ onBackPressed.invoke() } },
+        topBar = { QuizTopBar(onBackPressed) },
         backgroundColor = Light
     ) {
         Column(
@@ -39,39 +41,34 @@ fun LobbyContent(
                 .verticalScroll(rememberScrollState())
                 .padding(start = 16.dp, end = 16.dp, bottom = 16.dp),
         ) {
-            Spacer(modifier = Modifier.height(32.dp))
-            LobbyHeader(headerResource = R.string.fe_lobby_header)
-            Spacer(modifier = Modifier.height(24.dp))
+            LobbyHeader(
+                modifier = Modifier.padding(top = 32.dp, bottom = 24.dp),
+                headerResource = R.string.fe_lobby_header
+            )
+
             LobbyCard(
                 completedSections = completedSections,
                 lobby = lobbyState.lobby,
                 onSectionSelected = onSectionSelected
             )
-            Spacer(modifier = Modifier.height(16.dp))
-            LobbyHeader(headerResource = R.string.fe_lobby_subheader)
-            Spacer(modifier = Modifier.height(24.dp))
+
+            LobbyHeader(
+                modifier = Modifier.padding(top = 12.dp, bottom = 24.dp),
+                headerResource = R.string.fe_lobby_subheader
+            )
+
             LobbyNextChallengeFD(onClick = onNextChallengeClick)
         }
     }
 }
 
 @Composable
-private fun TopBar(
-    onBackPressed: () -> Unit
-){
-    Toolbar(
-        text = stringResource(id = R.string.fe_toolbar_header),
-        leftIconResource = R.drawable.ic_chevron_left_24px,
-        iconTint = Stori700Primary,
-        onLeftClick = onBackPressed
-    )
-}
-
-@Composable
 private fun LobbyHeader(
+    modifier: Modifier,
     headerResource: Int
 ){
     Text(
+        modifier = modifier,
         text = stringResource(id = headerResource),
         style = Typography.h3
     )
@@ -85,39 +82,36 @@ private fun LobbyCard(
 ){
     Card(modifier = Modifier.fillMaxWidth()) {
         Column(
-            modifier = Modifier.padding(horizontal = 16.dp)
+            modifier = Modifier.padding(horizontal = 21.dp, vertical = 24.dp)
         ) {
-            Spacer(modifier = Modifier.height(28.dp))
             LobbyProgressHeader(completedSections = completedSections, lobby = lobby)
-            Spacer(modifier = Modifier.height(18.dp))
-            LobbySection(
-                stringResource = R.string.fe_first_section_educative_question,
-                completedSections = completedSections,
-                position = 1,
-                onSectionSelected = onSectionSelected
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            LobbySection(
-                stringResource = R.string.fe_second_section_educative_question,
-                completedSections = completedSections,
-                position = 2,
-                onSectionSelected = onSectionSelected
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            LobbySection(
-                stringResource = R.string.fe_third_section_educative_question,
-                completedSections = completedSections,
-                position = 3,
-                onSectionSelected = onSectionSelected
-            )
-            Spacer(modifier = Modifier.height(10.dp))
-            LobbySection(
-                stringResource = R.string.fe_fourth_section_educative_question,
-                completedSections = completedSections,
-                position = 4,
-                onSectionSelected = onSectionSelected
-            )
-            Spacer(modifier = Modifier.height(24.dp))
+
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                LobbySection(
+                    stringResource = R.string.fe_first_section_educative_question,
+                    completedSections = completedSections,
+                    position = 1,
+                    onSectionSelected = onSectionSelected
+                )
+                LobbySection(
+                    stringResource = R.string.fe_second_section_educative_question,
+                    completedSections = completedSections,
+                    position = 2,
+                    onSectionSelected = onSectionSelected
+                )
+                LobbySection(
+                    stringResource = R.string.fe_third_section_educative_question,
+                    completedSections = completedSections,
+                    position = 3,
+                    onSectionSelected = onSectionSelected
+                )
+                LobbySection(
+                    stringResource = R.string.fe_fourth_section_educative_question,
+                    completedSections = completedSections,
+                    position = 4,
+                    onSectionSelected = onSectionSelected
+                )
+            }
         }
     }
 }
@@ -128,8 +122,8 @@ private fun LobbyProgressHeader(
     lobby: Lobby
 ){
     Row(
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(7.dp)
+        modifier = Modifier.fillMaxWidth().padding(bottom = 16.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         GradientCircularProgressBar(completedSections = completedSections)
         ProgressMessage(lobby = lobby)
@@ -147,6 +141,7 @@ private fun ProgressMessage(lobby: Lobby){
         )
 
         Text(
+            modifier = Modifier.fillMaxWidth(),
             text = stringResource(lobby.subtitle),
             color = Gray700,
             style = Typography.caption
@@ -173,9 +168,9 @@ private fun LobbySection(
         val rowModifier = if (isSelectable) {
             Modifier
                 .clickable(onClick = onSectionSelected)
-                .padding(all = 12.dp)
+                .padding(all = 11.dp)
         } else {
-            Modifier.padding(all = 12.dp)
+            Modifier.padding(all = 11.dp)
         }
 
         Row(
@@ -183,7 +178,7 @@ private fun LobbySection(
         ) {
             IconText(
                 modifier = Modifier
-                    .weight(10F)
+                    .weight(12F)
                     .padding(end = 8.dp),
                 text = stringResource(id = stringResource),
                 textStyle = Typography.caption,
@@ -198,7 +193,7 @@ private fun LobbySection(
                     modifier = Modifier
                         .weight(1F)
                         .align(Alignment.CenterVertically)
-                        .size(25.dp),
+                        .size(27.dp),
                     painter = painterResource(id = R.drawable.ic_chevron_right_24px),
                     contentDescription = null
                 )
@@ -236,11 +231,10 @@ private fun LobbyNextChallengeFD(
                 contentDescription = null
             )
 
-            Spacer(modifier = Modifier.width(16.dp))
-
             Column(
                 modifier = Modifier
                     .fillMaxHeight()
+                    .padding(start = 16.dp)
                     .align(alignment = Alignment.CenterVertically),
                 verticalArrangement = Arrangement.spacedBy(2.dp)
             ) {

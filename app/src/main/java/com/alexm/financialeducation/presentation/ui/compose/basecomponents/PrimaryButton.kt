@@ -31,7 +31,6 @@ fun PrimaryButton(
         modifier = modifier,
         colors = ButtonDefaults.buttonColors(
             backgroundColor = backgroundColor,
-            contentColor = contentColor,
             disabledBackgroundColor = disableBackgroundColor,
             disabledContentColor = disableContentColor
         ),
@@ -45,6 +44,7 @@ fun PrimaryButton(
         ButtonContent(
             text = text,
             textStyle = textStyle,
+            contentColor = contentColor,
             enableIcon = enableIcon
         )
     }

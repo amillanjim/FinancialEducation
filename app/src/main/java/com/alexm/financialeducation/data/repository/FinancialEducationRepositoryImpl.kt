@@ -19,7 +19,6 @@ class FinancialEducationRepositoryImpl @Inject constructor(): FinancialEducation
     override suspend fun getOnboardingBySection(section: Int): Onboarding =
         OnboardingType.getOnboardingBySection(section = section)
 
-
     override suspend fun getLobbyByCompletedSections(completedSections: Int): Lobby =
         LobbyType.getLobbyByCompletedSections(completedSections = completedSections)
 

@@ -16,7 +16,8 @@ import com.alexm.financialeducation.presentation.ui.compose.theme.GreenGradient5
 @Composable
 fun ImageHeader(
     modifier: Modifier,
-    @DrawableRes resourceId: Int
+    @DrawableRes resourceId: Int,
+    rotateImage: Float? = null
 ){
     Box(
         modifier = modifier
@@ -34,7 +35,8 @@ fun ImageHeader(
                     degrees = 45F
                 ),
             elevation = 4.dp,
-            resourceId = resourceId
-        ){}
+            resourceId = resourceId,
+            rotateImage = rotateImage
+        )
     }
 }
